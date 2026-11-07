@@ -5,11 +5,12 @@ export default defineConfig({
   testDir: './tests',
   timeout: 120000,
   fullyParallel: false,
-  reporter: 'html',
-
+  //reporter: 'html',
+reporter:[['html', { open: 'never' }]],
   use: {
-    headless: false,
-    trace: 'retain-on-failure'
+    headless: process.env.CI?true:false,
+    trace: 'retain-on-failure',
+    screenshot: 'only-on-failure',
   },
 
   projects: [

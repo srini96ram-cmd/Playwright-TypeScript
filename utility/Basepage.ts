@@ -1,70 +1,93 @@
-import {Page, Locator, expect} from '@playwright/test';
+import { Page, Locator, expect } from '@playwright/test';
 
-export class BasePage{
+export class BasePage {
 
-    constructor(Page:Page){}
-//click
-async click(locator:Locator){
-    await locator.click();
-}
+    private page: Page;
 
-async fill(locator:Locator, value:string){
-    await locator.fill(value);
-}
+    constructor(page: Page) {
+        this.page = page;
+    }
 
-async selectDropdown(locator:Locator, value:string){
-   await locator.selectOption(value);
-}
+    // Click
+    async click(locator: Locator) {
+        await locator.click();
+    }
 
-async navigate(url:string){
-    await this.Page.goto(url);
-}
+    // Fill
+    async fill(locator: Locator, value: string) {
+        await locator.fill(value);
+    }
 
-//To get text
-async getText(locator:Locator,value:string){
-    await locator.innerText();
-}
-//check checkbox
-async checkCheckbox(locator: Locator){
-    await locator.check();
-  }
-//uncheck checkbox
-async uncheckCheckbox(locator: Locator) {
-    await locator.uncheck();
-  }
-  //hover
-  async hover(locator:Locator){
-    await locator.hover();
-  }
-  //doubleclick
-  async doubleclick(locator:Locator){
-    await locator.dblclick();
-  }
-  //Right click
-  async rightclick(locator:Locator){
-    await locator.click({button:'right'});
-  }
-  //Press keyboard key
-  async presskey(locator:Locator,value:string){
-    await locator.press(value);
-  }
-  //verify element visible
-  async verifyvisible(locator:Locator){
-    await expect(locator).toBeVisible();
-  }
-  async verifyEnabled(locator:Locator){
-    await expect(locator).toBeEnabled();
-  }
-  async verifytext(locator:Locator,value:string){
-    await expect(locator).toHaveText(value);
-  }
-  async getcount(locator:Locator,value:number){
-    await expect(locator).count();
-  }
-async takescreenshot(filename:string){
-    await this.page.screenshot({
-        path:filename,
-        fullPage:true
-    });
-}
+    // Select dropdown
+    async selectDropdown(locator: Locator, value: string) {
+        await locator.selectOption(value);
+    }
+
+    // Navigate
+    async navigate(url: string) {
+        await this.page.goto(url);
+    }
+
+    // Get text
+    async getText(locator: Locator) {
+        return await locator.innerText();
+    }
+
+    // Check checkbox
+    async checkCheckbox(locator: Locator) {
+        await locator.check();
+    }
+
+    // Uncheck checkbox
+    async uncheckCheckbox(locator: Locator) {
+        await locator.uncheck();
+    }
+
+    // Hover
+    async hover(locator: Locator) {
+        await locator.hover();
+    }
+
+    // Double click
+    async doubleclick(locator: Locator) {
+        await locator.dblclick();
+    }
+
+    // Right click
+    async rightclick(locator: Locator) {
+        await locator.click({ button: 'right' });
+    }
+
+    // Press keyboard key
+    async presskey(locator: Locator, value: string) {
+        await locator.press(value);
+    }
+
+    // Verify element visible
+    async verifyvisible(locator: Locator) {
+        await expect(locator).toBeVisible();
+    }
+
+    // Verify enabled
+    async verifyEnabled(locator: Locator) {
+        await expect(locator).toBeEnabled();
+    }
+
+    // Verify text
+    async verifytext(locator: Locator, value: string) {
+        await expect(locator).toHaveText(value);
+    }
+
+    // Get count
+    async getcount(locator: Locator) {
+        return await locator.count();
+    }
+
+    // Take screenshot
+    async takescreenshot(filename: string) {
+        await this.page.screenshot({
+            path: filename,
+            fullPage: true
+        });
+    }
 }

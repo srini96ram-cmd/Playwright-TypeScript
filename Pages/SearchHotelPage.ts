@@ -1,5 +1,5 @@
 import { Page, Locator } from '@playwright/test';
-//import { BasePage} from '../utility/BasePage';
+import { BasePage} from '../utility/BasePage.js';
 
 export interface SearchHotelData {
   location: string;

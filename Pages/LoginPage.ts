@@ -1,13 +1,13 @@
-import type{Page,Locator} from '@playwright/test';
-import { BasePage} from '../utility/BasePage';
+import type { Page, Locator } from '@playwright/test';
+import { BasePage } from '../utility/BasePage.js';
 
-export class LoginPage extends BasePage 
-{
-    private username;
-    private password;
-    private loginButton;
+export class LoginPage extends BasePage {
 
-    constructor(page:Page){
+    private username: Locator;
+    private password: Locator;
+    private loginButton: Locator;
+
+    constructor(page: Page) {
         super(page);
 
         this.username = page.locator('#username');
@@ -15,13 +15,9 @@ export class LoginPage extends BasePage
         this.loginButton = page.locator('#login');
     }
 
-
-    async login(username:string , password:string){
-        await this.fill(this.username,username);
+    async login(username: string, password: string) {
+        await this.fill(this.username, username);
         await this.fill(this.password, password);
         await this.click(this.loginButton);
     }
-
-
-
 }

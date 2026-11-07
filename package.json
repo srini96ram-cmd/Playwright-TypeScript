@@ -1,0 +1,26 @@
+{
+  "name": "playwrighttypescript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "cucumber-js --config cucumber.cjs",
+    "test:cucumber": "cucumber-js --config cucumber.cjs",
+    "test:playwright": "playwright test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "@cucumber/cucumber": "^13.3.0",
+    "@playwright/test": "^1.62.1",
+    "@types/node": "^26.4.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "dotenv": "^18.0.9",
+    "xlsx": "^0.18.5"
+  }
+}

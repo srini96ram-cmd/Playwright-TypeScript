@@ -3,7 +3,7 @@
 import {chromium} from 'playwright';
 (async ()=>{
     const browser=await chromium.launch({
-     headless:false
+     headless:true
     });
     const context=await browser.newContext();
     const page=await context.newPage();
